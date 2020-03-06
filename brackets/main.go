@@ -17,34 +17,28 @@ func main() {
 }
 
 func brackets(s string) string {
-	if !isOK('(', ')', s) {
-		return "Error"
-	}
-	if !isOK('[', ']', s) {
-		return "Error"
-	}
-	if !isOK('{', '}', s) {
-		return "Error"
-	}
-	return "OK"
-}
+	br := ""
+	for _, r := range []rune(s) {
+		if (r == ')' || r == '}' || r == ']') && len(br) == 0 {
+			return "Error"
+		}
 
-func isOK(a, b rune, s string) bool {
-	if s == "" {
-		return true
-	}
-	ac := 0
-	bc := 0
-	for _, x := range []rune(s) {
-		if x == a {
-			ac++
+		if r == '(' || r == '{' || r == '[' {
+			br += string(r)
 		}
-		if x == b {
-			bc++
+
+		if r == ')' && br[len(br)-1] == '(' {
+			br = br[:len(br)-1]
+		}
+		if r == '}' && br[len(br)-1] == '{' {
+			br = br[:len(br)-1]
+		}
+		if r == ']' && br[len(br)-1] == '[' {
+			br = br[:len(br)-1]
 		}
 	}
-	if ac == bc {
-		return true
+	if len(br) == 0 {
+		return "OK"
 	}
-	return false
+	return "Error"
 }
