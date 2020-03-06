@@ -17,7 +17,7 @@ func main() {
 }
 
 func IsAnagram(str1, str2 string) bool {
-	a, b := clean(sort(str1)), clean(sort(str2))
+	a, b := clean(str1), clean(str2)
 	if a == b {
 		return true
 	}
@@ -25,6 +25,7 @@ func IsAnagram(str1, str2 string) bool {
 }
 
 func clean(s string) string {
+	s = sort(s)
 	if s[0] == ' ' {
 		return clean(s[1:])
 	}
