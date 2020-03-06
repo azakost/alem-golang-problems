@@ -18,24 +18,48 @@ func main() {
 }
 
 func rpncalc(s string) string {
-	num, opr := twoSlices(s)
-	if len(num)-1 != len(opr) {
-		return "Error"
-	}
+	s = clean(s)
+	arr := strings.Split(s, " ")
+	var stack []int
+	for i, x := range arr {
 
-	res := 0
-	for x := 0; x < len(num); x++ {
-		a, e := strconv.Atoi(num[x])
-		if e != nil {
+		if i < 2 && isOpr(x) {
 			return "Error"
 		}
-		if x == 0 {
-			res = a
-		} else {
-			res = calc(res, opr[x-1], a)
+
+		if !isOpr(x) {
+			n, e := strconv.Atoi(x)
+			if e != nil {
+				return "Error"
+			}
+			stack = append(stack, n)
+			continue
+		}
+
+		if isOpr(x) {
+			l := len(stack)
+			a := stack[l-2]
+			b := stack[l-1]
+			res := calc(a, x, b)
+			stack = stack[:l-2]
+			stack = append(stack, res)
+			continue
 		}
 	}
-	return itoa(res)
+	if len(stack) != 1 {
+		return "Error"
+	}
+	return itoa(stack[0])
+}
+
+func isOpr(r string) bool {
+	opr := "+-*/%"
+	for _, x := range []rune(opr) {
+		if string(x) == r {
+			return true
+		}
+	}
+	return false
 }
 
 func calc(a int, o string, b int) int {
@@ -53,21 +77,6 @@ func calc(a int, o string, b int) int {
 		s = a % b
 	}
 	return s
-}
-
-func twoSlices(s string) ([]string, []string) {
-	s = clean(s)
-	arr := strings.Split(s, " ")
-	var opr []string
-	var dig []string
-	for _, r := range arr {
-		if r == "+" || r == "-" || r == "*" || r == "/" || r == "%" {
-			opr = append(opr, r)
-		} else {
-			dig = append(dig, r)
-		}
-	}
-	return dig, opr
 }
 
 func clean(s string) string {
