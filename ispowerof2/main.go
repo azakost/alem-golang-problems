@@ -19,11 +19,11 @@ func main() {
 		}
 
 		if isPowerofTwo(n) {
-			for _, r := range []rune("true") {
+			for _, r := range "true" {
 				z01.PrintRune(r)
 			}
 		} else {
-			for _, r := range []rune("false") {
+			for _, r := range "false" {
 				z01.PrintRune(r)
 			}
 		}

@@ -19,7 +19,7 @@ func main() {
 
 func reverse(s string) string {
 	size := 1
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if r == ' ' {
 			size++
 		}
@@ -27,7 +27,7 @@ func reverse(s string) string {
 	arr := make([]string, size)
 	word := ""
 	n := size - 1
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if r != ' ' {
 			word += string(r)
 		} else {

@@ -9,7 +9,7 @@ func main() {
 
 func LastRune(s string) rune {
 	var res rune
-	for _, v := range []rune(s) {
+	for _, v := range s {
 		res = v
 	}
 	return res

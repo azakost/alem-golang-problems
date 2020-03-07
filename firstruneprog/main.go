@@ -8,5 +8,5 @@ func main() {
 }
 
 func FirstRune(s string) rune {
-	return []rune(s)[0]
+	return s[0]
 }

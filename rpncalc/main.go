@@ -54,7 +54,7 @@ func rpncalc(s string) string {
 
 func isOpr(r string) bool {
 	opr := "+-*/%"
-	for _, x := range []rune(opr) {
+	for _, x := range opr {
 		if string(x) == r {
 			return true
 		}
@@ -89,7 +89,7 @@ func clean(s string) string {
 	}
 	txt := ""
 	flag := true
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if r != ' ' {
 			txt += string(r)
 			flag = true

@@ -18,7 +18,7 @@ func main() {
 
 func brackets(s string) string {
 	br := ""
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if (r == ')' || r == '}' || r == ']') && len(br) == 0 {
 			return "Error"
 		}

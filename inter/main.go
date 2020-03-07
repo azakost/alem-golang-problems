@@ -9,7 +9,7 @@ import (
 func main() {
 	ar := os.Args
 	if len(ar) == 3 {
-		for _, x := range []rune(inter(ar[1:])) {
+		for _, x := range inter(ar[1:]) {
 			z01.PrintRune(x)
 		}
 	}
@@ -20,7 +20,7 @@ func inter(arr []string) string {
 	a := clear(arr[0])
 	b := arr[1]
 	res := ""
-	for _, x := range []rune(a) {
+	for _, x := range a {
 		if has(x, b) {
 			res += string(x)
 		}
@@ -30,7 +30,7 @@ func inter(arr []string) string {
 
 func clear(s string) string {
 	res := ""
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if !has(r, res) {
 			res += string(r)
 		}
@@ -39,7 +39,7 @@ func clear(s string) string {
 }
 
 func has(r rune, s string) bool {
-	for _, x := range []rune(s) {
+	for _, x := range s {
 		if r == x {
 			return true
 		}

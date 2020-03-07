@@ -9,7 +9,7 @@ import (
 func main() {
 	ar := os.Args
 	if len(ar) == 2 {
-		for _, r := range []rune(div(ar[1])) {
+		for _, r := range div(ar[1]) {
 			z01.PrintRune(r)
 		}
 	}

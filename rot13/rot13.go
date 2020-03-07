@@ -11,7 +11,7 @@ func main() {
 	// Rot13
 	ar := os.Args
 	if len(ar) == 2 {
-		for _, r := range []rune(ar[1]) {
+		for _, r := range ar[1] {
 			if r >= 'a' && r <= 'z' {
 				if (r + 13) > 'z' {
 					k := (r + 12) - 'z'

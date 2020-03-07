@@ -20,7 +20,7 @@ func main() {
 		for x := 1; x <= 9; x++ {
 			mul := x * n
 			res := itoa(x) + " x " + itoa(n) + " = " + itoa(mul) + "\n"
-			for _, r := range []rune(res) {
+			for _, r := range res {
 				z01.PrintRune(r)
 			}
 		}

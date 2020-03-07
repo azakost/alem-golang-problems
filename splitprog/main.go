@@ -12,7 +12,7 @@ func Split(str, charset string) []string {
 	word := ""
 	res := make([]string, size)
 	n := 0
-	for _, x := range []rune(st) {
+	for _, x := range st {
 		if x != '\v' {
 			word += string(x)
 		} else {

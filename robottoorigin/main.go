@@ -19,7 +19,7 @@ func main() {
 func robot(s string) string {
 	x := 0
 	y := 0
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		if r == 'U' {
 			y++
 		}
@@ -41,7 +41,7 @@ func robot(s string) string {
 }
 
 func printer(s string) {
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		z01.PrintRune(r)
 	}
 }

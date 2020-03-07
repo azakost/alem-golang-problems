@@ -9,7 +9,7 @@ import (
 func main() {
 	ar := os.Args
 	if len(ar) == 3 {
-		for _, r := range []rune(Compare(ar[1], ar[2])) {
+		for _, r := range Compare(ar[1], ar[2]) {
 			z01.PrintRune(r)
 		}
 	}

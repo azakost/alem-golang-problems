@@ -10,7 +10,7 @@ func main() {
 	ar := os.Args
 
 	if len(ar) == 3 {
-		for _, r := range []rune(clear(join(ar[1:]))) {
+		for _, r := range clear(join(ar[1:])) {
 			z01.PrintRune(r)
 		}
 	}
@@ -27,7 +27,7 @@ func join(arr []string) string {
 }
 
 func has(r rune, s string) bool {
-	for _, x := range []rune(s) {
+	for _, x := range s {
 		if x == r {
 			return true
 		}
@@ -37,7 +37,7 @@ func has(r rune, s string) bool {
 
 func clear(s string) string {
 	z := ""
-	for _, x := range []rune(s) {
+	for _, x := range s {
 		if !has(x, z) {
 			z += string(x)
 		}

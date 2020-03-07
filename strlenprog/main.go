@@ -10,7 +10,7 @@ func main() {
 
 func StrLen(str string) int {
 	n := 0
-	for range []rune(str) {
+	for range str {
 		n++
 	}
 	return n

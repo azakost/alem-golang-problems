@@ -40,9 +40,9 @@ func count(s string) []int {
 	c := formUniq(s)
 	nums := make([]int, len(c))
 	m := 0
-	for _, a := range []rune(c) {
+	for _, a := range c {
 		n := 0
-		for _, b := range []rune(s) {
+		for _, b := range s {
 			if a == b {
 				n++
 			}
@@ -55,7 +55,7 @@ func count(s string) []int {
 
 func formUniq(s string) string {
 	new := ""
-	for _, a := range []rune(s) {
+	for _, a := range s {
 		if isUniq(a, new) {
 			new += string(a)
 		}
@@ -64,7 +64,7 @@ func formUniq(s string) string {
 }
 
 func isUniq(r rune, s string) bool {
-	for _, a := range []rune(s) {
+	for _, a := range s {
 		if r == a {
 			return false
 		}
@@ -73,7 +73,7 @@ func isUniq(r rune, s string) bool {
 }
 
 func printer(s string) {
-	for _, r := range []rune(s) {
+	for _, r := range s {
 		z01.PrintRune(r)
 	}
 }

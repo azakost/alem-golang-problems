@@ -24,7 +24,7 @@ func options(ar []string) string {
 		if z[:2] == "-h" {
 			return "options: " + chars
 		}
-		for i, r := range []rune(z) {
+		for i, r := range z {
 			if i == 0 {
 				continue
 			}
@@ -36,9 +36,9 @@ func options(ar []string) string {
 	}
 	k := 1
 	str := "000000"
-	for _, r := range []rune(rev(chars)) {
+	for _, r := range rev(chars) {
 		n := 0
-		for _, k := range []rune(new) {
+		for _, k := range new {
 			if r == k {
 				n++
 				break

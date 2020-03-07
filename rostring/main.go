@@ -11,7 +11,7 @@ func main() {
 	ar := os.Args
 
 	if len(ar) == 2 {
-		for _, r := range []rune(rostring(ar[1])) {
+		for _, r := range rostring(ar[1]) {
 			z01.PrintRune(r)
 		}
 
@@ -40,7 +40,7 @@ func midsp(s string) (string, int) {
 	res := ""
 	flag := true
 	n := 1
-	for _, x := range []rune(clear(s)) {
+	for _, x := range clear(s) {
 		if x != ' ' {
 			res += string(x)
 			flag = true
@@ -65,7 +65,7 @@ func rostring(s string) string {
 	n := 0
 	k := 0
 	tmp := ""
-	for _, x := range []rune(str) {
+	for _, x := range str {
 		if x != ' ' {
 			word += string(x)
 		} else {

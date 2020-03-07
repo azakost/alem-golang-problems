@@ -9,7 +9,7 @@ import (
 func main() {
 	ar := os.Args
 	if len(ar) == 2 {
-		for _, x := range []rune(addPrime(ar[1])) {
+		for _, x := range addPrime(ar[1]) {
 			z01.PrintRune(x)
 		}
 	} else {

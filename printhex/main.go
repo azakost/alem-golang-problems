@@ -16,7 +16,7 @@ func main() {
 			z01.PrintRune('0')
 		}
 
-		for _, r := range []rune(hex(n)) {
+		for _, r := range hex(n) {
 			z01.PrintRune(r)
 		}
 

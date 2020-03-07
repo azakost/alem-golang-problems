@@ -10,7 +10,7 @@ func main() {
 	ar := os.Args
 
 	if len(ar) == 2 {
-		for _, x := range []rune(ar[1]) {
+		for _, x := range ar[1] {
 			for z := 0; z < times(x); z++ {
 				z01.PrintRune(x)
 			}
