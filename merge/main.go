@@ -13,17 +13,13 @@ type TreeNodeM struct {
 }
 
 func MergeTrees(t1 *TreeNodeM, t2 *TreeNodeM) *TreeNodeM {
-
 	newRoot := &TreeNodeM{}
-
 	if t1 == nil {
 		return t2
 	}
-
 	if t2 == nil {
 		return t1
 	}
-
 	newRoot.Val = t1.Val + t2.Val
 	newRoot.Left = MergeTrees(t1.Left, t2.Left)
 	newRoot.Right = MergeTrees(t1.Right, t2.Right)
