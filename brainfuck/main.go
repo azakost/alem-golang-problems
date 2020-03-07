@@ -1,19 +1,18 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func main() {
 	ar := os.Args
-
 	if len(ar) == 2 {
 		Brainfuck(ar[1])
 	} else {
-		fmt.Println()
+		printer("\n")
 	}
-
 }
 
 func Brainfuck(s string) {
@@ -33,7 +32,7 @@ func Brainfuck(s string) {
 		case '+':
 			*p++
 		case '.':
-			fmt.Print(string(*p))
+			printer(string(*p))
 		case '[':
 			depth++
 			if *p == 0 {
@@ -62,5 +61,11 @@ func Brainfuck(s string) {
 			}
 		}
 		p = &b[x]
+	}
+}
+
+func printer(s string) {
+	for _, r := range s {
+		z01.PrintRune(r)
 	}
 }
