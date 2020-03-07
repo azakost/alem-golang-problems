@@ -17,40 +17,53 @@ func main() {
 }
 
 func IsAnagram(str1, str2 string) bool {
-	a, b := clean(str1), clean(str2)
-	if a == b {
+	t := byte(0)
+	for _, x := range str1 + str2 {
+		if x != ' ' {
+			t ^= byte(x)
+		}
+	}
+	if t == 0 {
 		return true
 	}
 	return false
 }
 
-func clean(s string) string {
-	s = sort(s)
-	if s[0] == ' ' {
-		return clean(s[1:])
-	}
-	return s
-}
+// func IsAnagram(str1, str2 string) bool {
+// 	a, b := clean(str1), clean(str2)
+// 	if a == b {
+// 		return true
+// 	}
+// 	return false
+// }
 
-func sort(s string) string {
-	l := len(s)
-	ar := make([]string, l)
-	for i := 0; i < l; i++ {
-		ar[i] = s[i : i+1]
-	}
+// func clean(s string) string {
+// 	s = sort(s)
+// 	if s[0] == ' ' {
+// 		return clean(s[1:])
+// 	}
+// 	return s
+// }
 
-	for x := 0; x < len(s); x++ {
-		for y := x + 1; y < len(s); y++ {
-			if ar[x] > ar[y] {
-				tmp := ar[x]
-				ar[x] = ar[y]
-				ar[y] = tmp
-			}
-		}
-	}
-	txt := ""
-	for _, a := range ar {
-		txt += a
-	}
-	return txt
-}
+// func sort(s string) string {
+// 	l := len(s)
+// 	ar := make([]string, l)
+// 	for i := 0; i < l; i++ {
+// 		ar[i] = s[i : i+1]
+// 	}
+
+// 	for x := 0; x < len(s); x++ {
+// 		for y := x + 1; y < len(s); y++ {
+// 			if ar[x] > ar[y] {
+// 				tmp := ar[x]
+// 				ar[x] = ar[y]
+// 				ar[y] = tmp
+// 			}
+// 		}
+// 	}
+// 	txt := ""
+// 	for _, a := range ar {
+// 		txt += a
+// 	}
+// 	return txt
+// }
