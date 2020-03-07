@@ -17,7 +17,7 @@ func main() {
 func balanced(s string) int {
 	n := 0
 	k := 0
-	for i, r := range []rune(s) {
+	for i, r := range s {
 		if r == 'C' {
 			n++
 		}
