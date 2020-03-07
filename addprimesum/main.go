@@ -30,10 +30,13 @@ func addPrime(num string) string {
 }
 
 func isPrime(n int) bool {
-	if n < 2 {
-		return false
+	z := 0
+	for x := 2; x <= n; x++ {
+		if n%x == 0 {
+			z++
+		}
 	}
-	if n%2 == 1 || n == 2 {
+	if z == 1 {
 		return true
 	}
 	return false
