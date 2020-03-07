@@ -9,20 +9,16 @@ import (
 
 func main() {
 	ar := os.Args
-
 	if len(ar) == 3 {
 		fmt.Print(hiddenp(ar[1], ar[2]))
 	}
 	z01.PrintRune('\n')
-
 }
 
 func hiddenp(a, b string) int {
-
 	if len(a) == 0 {
 		return 1
 	}
-
 	match := 0
 	x := 0
 	y := 0

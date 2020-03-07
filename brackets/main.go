@@ -22,11 +22,9 @@ func brackets(s string) string {
 		if (r == ')' || r == '}' || r == ']') && len(br) == 0 {
 			return "Error"
 		}
-
 		if r == '(' || r == '{' || r == '[' {
 			br += string(r)
 		}
-
 		if r == ')' && br[len(br)-1] == '(' {
 			br = br[:len(br)-1]
 		}
