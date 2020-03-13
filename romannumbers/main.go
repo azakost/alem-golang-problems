@@ -23,13 +23,11 @@ func toRoman(n int) string {
 		n = -n
 		res = "-"
 	}
-
 	num := []int{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000}
 	sym := []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
 	m := make(map[int]string)
 	i := 12
 	z := 0
-
 	for n > 0 {
 		div := n / num[i]
 		n %= num[i]
@@ -41,7 +39,6 @@ func toRoman(n int) string {
 		}
 		i--
 	}
-
 	calc := ""
 	for x := 0; x < z; x++ {
 		if Len(m[x]) == 1 {
@@ -53,11 +50,9 @@ func toRoman(n int) string {
 			calc += "+"
 		}
 	}
-
 	if res[0] == '-' {
 		calc = "-(" + calc + ")"
 	}
-
 	return calc + "\n" + res + "\n"
 }
 
